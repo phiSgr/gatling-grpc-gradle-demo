@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package example;
+
+option java_package = "com.github.phisgr.example";
+option java_multiple_files = true;
+
+message Ping {
+    int32 data = 1;
+}
+message Pong {
+    int32 data = 1;
+}
+
+service DemoService {
+    rpc PingPong (Ping) returns (Pong);
+}
