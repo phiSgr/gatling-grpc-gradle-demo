@@ -8,16 +8,6 @@ living in the same project as the gRPC server.
 Run the server: `./gradlew run`\
 Run the load test: `./gradlew gatlingRun`
 
-## Force Running
-
-Disable the "caching" of report with this block in `build.gradle`.
-
-```gradle
-gatlingRun {
-    outputs.upToDateWhen { false }
-}
-```
-
 ## Dynamic Payload
 
 This project also demonstrates the integration between
@@ -65,3 +55,10 @@ enable the extension in the "Event Log" in the bottom right corner.
 
 Otherwise, IntelliJ cannot recognize the method references like `setData`,
 and they will not be auto-suggested or syntax-highlighted.
+
+If you do not get the notification,
+try forcing the download of the extension by adding\
+`gatling 'com.github.phisgr:gatling-javapb-ijext:1.2.0'`\
+in `dependencies {` in [build.gradle](./build.gradle).
+
+After that you can remove that line of dependency.
