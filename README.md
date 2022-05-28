@@ -62,3 +62,18 @@ try forcing the download of the extension by adding\
 in `dependencies {` in [build.gradle](./build.gradle).
 
 After that you can remove that line of dependency.
+
+# Kotlin
+
+In Gatling-gRPC, `sbt kt/publishM2` to build a snapshot version.
+
+To run: `./gradlew gatlingRun-com.github.phisgr.exampletest.PingPongKt`
+
+```kotlin
+private val message: Function<Session, Ping> = Ping.getDefaultInstance().updateWith { it.toBuilder() }
+    // dynamic payload!
+    .update({ it::setData }, { it.getInt("data") })
+```
+
+Unlike Scala, there is no macro magic to infer the builder type.
+So the `.updateWith { it.toBuilder() }` is required.
