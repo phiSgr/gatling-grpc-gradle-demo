@@ -1,6 +1,7 @@
 # Gatling-gRPC demo in Gradle
 
-A demo project showcasing a Gatling test
+A demo project showcasing a Gatling tests,
+written in Scala and Kotlin,
 living in the same project as the gRPC server.
 
 ## Run
@@ -58,7 +59,19 @@ and they will not be auto-suggested or syntax-highlighted.
 
 If you do not get the notification,
 try forcing the download of the extension by adding\
-`gatling 'com.github.phisgr:gatling-javapb-ijext:1.2.0'`\
-in `dependencies {` in [build.gradle](./build.gradle).
+`gatling 'com.github.phisgr:gatling-javapb-ijext:1.3.0'`\
+in `dependencies {` in [build.gradle](./build.gradle.kts).
 
 After that you can remove that line of dependency.
+
+# Kotlin
+
+To run: `./gradlew gatlingRun-com.github.phisgr.exampletest.PingPongKt`
+
+```kotlin
+.payload(Ping::newBuilder) { session ->
+    // dynamic payload!
+    data = session.getInt("data")
+    build()
+}
+```
